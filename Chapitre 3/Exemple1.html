@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title>Michel Di Croci</title>
+	
+	<script type="text/javascript">
+		function Exemple1()
+		{
+			var pos = document.getElementById("titre");
+			pos.innerHTML = "Nouveau titre";		
+		}
+
+		function Exemple2()
+		{
+
+			var pos = document.getElementsByTagName("body")[0];
+			
+			posbutton = document.getElementsByTagName("input")[0];
+			posp = document.getElementsByTagName("p")[0];
+
+			var newPNode = document.createElement("p");
+			var newNode = document.createTextNode("Ben mieux");
+			newPNode.appendChild(newNode);
+			pos.insertBefore(newPNode,posbutton);
+
+			pos.removeChild(posp);
+			
+			
+			
+			//var pos = document.getElementById("titre");
+			
+			
+		
+		}
+
+		
+	</script>
+  </head>
+  <body>
+    <h1 id="titre">DOM Lesson un</h1>
+    <p>Bonjour le monde!</p>
+	
+	<input type="button" onclick="javascript:Exemple1()" value="Changer le titre">
+	<input type="button" onclick="javascript:Exemple2()" value="Modifier le texte">
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+<head>
+<title> Titre </title>
+<script language="JavaScript">
+
+var tab = new Array(1, 2, 3, 11, 111, 4);
+var sorted = tab.sort();
+
+alert(sorted);
+
+/*
+
+La fonction de comparaison (2 paramètres) doit retourner une valeur numérique : 
+
+< 0 si a < b 
+== 0 si a == b
+> 0 si a > b
+
+*/
+
+function Comparer(a, b)
+{
+	return a - b;
+}
+
+sorted = tab.sort(Comparer);
+
+alert(sorted);
+
+// Elle peut être utile pour trier des dates égalements
+
+tab = new Array(new Date("4/2/2004"),
+	  new Date("8/30/1997"),
+	  new Date("9/18/2001")); //("mois/jour/année")
+
+alert (tab.sort(Comparer));
+
+
+</script>
+</head>
+<body>
+
+</body>
+
+</html>

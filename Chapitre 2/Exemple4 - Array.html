@@ -1,0 +1,45 @@
+<html>
+<head>
+<title> Titre </title>
+<script language="JavaScript">
+
+	var tab = new Array();			//Nombre d'éléments non défini
+	var tab = new Array(100);		//100 éléments
+
+
+	var tab = new Array(4);
+	tab[0] = 4;
+	tab[1] = 2;
+	tab[2] = -3;
+	tab[5] = 5; // Ok il redimensionne le tableau
+	alert(tab[6]);
+	tab[70] = 34; // 	Tous les éléments de [4] à [69] seront undefined et length sera à 71.
+	tab.length = 0; // Efface tout vide le tableau		
+	alert(tab[1]);
+	
+	// On peut créer le tableau en affectant immédiatement les valeurs
+	var tab = new Array(1, 2, 3, 34, -5, new String("abc"), new Date()); 
+	
+	// On peut créer des arrays à deux dimensions
+	var tab = new Array(2);
+
+	tab[0] = new Array(2);		//crée la 2e dimension
+
+	tab[0][0] = 1;
+	tab[0][1] = 0;
+	tab[1][0] = 1; 				//erreur tab[1] undefined
+	tab[1] = new Array(2);		//crée la 2e dimension
+
+	tab[1][0] = "a";
+	tab[1][1] = "b";
+
+	// ou tout simplement
+	var tab = new Array (new Array(2), new Array(2)); 
+	var tab = new Array(new Array(1,0), new Array("a","b"));
+</script>
+</head>
+<body>
+
+</body>
+
+</html>

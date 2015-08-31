@@ -1,0 +1,33 @@
+<html>
+<head>
+<title> Titre </title>
+<script language="JavaScript">
+
+	alert("hello");
+	
+	function Roger ()
+	{
+		// x et y sont définies qu'à l'intérieur de cette fonction
+		var x;
+		var y, z = 52;
+		
+		
+		// variable globale a
+		a = 2;
+		
+		alert(x);
+	}
+	
+	Roger(); // <-- Si non présent, a ne se fait jamais initialisée donc elle n'existe pas lorsque l'on tente de l'afficher
+	alert (a);
+
+
+// Puisque a n'est pas déclarée, elle a la durée de vie du document. Elle sera membre de l'objet window qui est l'objet par défaut. En mémoire, le navigateur crée l'objet a avec la commande: a = new Number(2) et attache cet objet Number à l'objet window.
+// Il faut dont faire très attention à l'orthographe des identificateurs. Car si ce dernier n'est pas le même, il pourra le créer comme variable globale.	
+</script>
+</head>
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<html>
+<head>
+<title> Titre </title>
+<script language="JavaScript">
+
+function CEmploi(Nas, Nom, TauxHor, Heures) {
+  this.m_Nas = new Number(Nas);
+  this.m_Nom = new String(Nom);
+  this.m_TauxHor = new Number(TauxHor);
+  this.m_Heures = new Number(Heures);
+}
+
+// Deux méthodes personnalisées ajoutées à l'objet CEmploi
+
+CEmploi.prototype.paye = Paye;
+CEmploi.prototype.affiche = CEmploiAffiche; 
+
+function Paye() {
+  return new Number(this.m_TauxHor * this.m_Heures);
+}
+
+var m_emploi  = new Array();
+
+function creerEmploi(Nas, Nom, TauxHor, Heures) {
+   m_emploi[m_emploi.length] = new CEmploi(Nas, Nom, TauxHor, Heures);
+}
+
+function listing_emploi() 
+{
+  for (var i=0;i<m_emploi.length;i++)
+     document.write(m_emploi[i].affiche());
+}
+
+function CEmploiAffiche() 
+{
+   return this.m_Nas + " " + this.m_Nom + " " + this.m_TauxHor + " "
+           + this.m_Heures + " " + this.paye() + "<br>"; // Fait appel à une méthode créée précédemment
+}
+
+creerEmploi(12, "Blo", 71, 25);
+creerEmploi(29, "Charlotte", 10, 10);
+
+listing_emploi();
+
+</script>
+</head>
+<body>
+
+</body>
+
+</html>

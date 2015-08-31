@@ -1,0 +1,31 @@
+<html>
+<head>
+<title> Titre </title>
+<script language="JavaScript">
+
+function Moyenne() {
+  //var n = Moyenne.arguments.length; // deprecated
+  
+  args = [].slice.call(arguments);
+  var n = args.length;
+  var somme = 0;
+
+  for(var i = 0; i < n; i++)
+    //somme += Moyenne.arguments[i]; // deprecated
+	somme += args[i];
+
+  return (n == 0) ? 0 : somme / n;
+}
+var n1 = Moyenne(2, 5, 7, 8, 32);
+var n2 = Moyenne(2,7,3);
+
+alert(n1);
+alert(n2);
+
+</script>
+</head>
+<body>
+
+</body>
+
+</html>
