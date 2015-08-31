@@ -1,0 +1,26 @@
+<html>
+<head>
+<title> Titre </title>
+<script language="JavaScript">
+function foo()
+{
+	var loc1 = 2 // n’a pas d’existence en dehors de foo() 
+	for (i = 0; i < loc1; i++)
+	{
+		var loc2 = 2 * loc1 ; // loc2 est disponible pour toute la fonction foo() 
+		alert(loc2) ;
+	}
+	alert(loc2); // S’affiche sans problème 
+}
+
+alert(loc2); // Provoque une erreur
+
+// Si la déclaration var est utilisée en-dehors de toute fonction, la variable sera utilisable dans tout le script.
+
+</script>
+</head>
+<body>
+
+</body>
+
+</html>
