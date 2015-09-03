@@ -3,7 +3,7 @@
 <title> Titre </title>
 <script language="JavaScript">
 
-function CEmploi(Nas, Nom, TauxHor, Heures) {
+function Employe(Nas, Nom, TauxHor, Heures) {
   this.m_Nas = new Number(Nas);
   this.m_Nom = new String(Nom);
   this.m_TauxHor = new Number(TauxHor);
@@ -12,35 +12,47 @@ function CEmploi(Nas, Nom, TauxHor, Heures) {
 
 // Deux méthodes personnalisées ajoutées à l'objet CEmploi
 
-CEmploi.prototype.paye = Paye;
-CEmploi.prototype.affiche = CEmploiAffiche; 
+Employe.prototype.paye = Paye;
+Employe.prototype.affiche = Affiche; 
 
 function Paye() {
   return new Number(this.m_TauxHor * this.m_Heures);
 }
 
-var m_emploi  = new Array();
-
-function creerEmploi(Nas, Nom, TauxHor, Heures) {
-   m_emploi[m_emploi.length] = new CEmploi(Nas, Nom, TauxHor, Heures);
-}
-
-function listing_emploi() 
+function Affiche() 
 {
-  for (var i=0;i<m_emploi.length;i++)
-     document.write(m_emploi[i].affiche());
+   return "<td>" + this.m_Nas + "</td><td>" + this.m_Nom + "</td><td>" + this.m_TauxHor + "</td><td>"
+           + this.m_Heures + "</td><td>" + this.paye() + "</td>"; // Fait appel à une méthode créée précédemment
 }
 
-function CEmploiAffiche() 
+
+var listeEmploye  = new Array();
+
+function ajouterEmploye(Nas, Nom, TauxHor, Heures) {
+   listeEmploye[listeEmploye.length] = new Employe(Nas, Nom, TauxHor, Heures);
+}
+
+function header()
 {
-   return this.m_Nas + " " + this.m_Nom + " " + this.m_TauxHor + " "
-           + this.m_Heures + " " + this.paye() + "<br>"; // Fait appel à une méthode créée précédemment
+	document.write("<th>NAS</th><th>Nom</th><th>Taux Horaire</th><th>Nbre d'heure</th><th>Paie</th>");
+
 }
 
-creerEmploi(12, "Blo", 71, 25);
-creerEmploi(29, "Charlotte", 10, 10);
+function listingEmploye() 
+{
+	document.write("<table style='text-align:center;'>");
+	header();
+  	for (var i=0;i<listeEmploye.length;i++)
+    	document.write("<tr>" + listeEmploye[i].affiche() + "</tr>");
+    document.write("</table>")
+}
 
-listing_emploi();
+
+
+ajouterEmploye(12, "Blo", 71, 25);
+ajouterEmploye(29, "Charlotte", 10, 10);
+
+listingEmploye();
 
 </script>
 </head>
