@@ -1,0 +1,31 @@
+
+<html>
+<head>
+<title> Titre </title>
+<script language="JavaScript">
+var x = new Array(32, 4, -5, 2, 16, 28); 
+var y = new Array(14, 8, -7, 58, 60);
+
+Array.prototype.Maximum = Max;
+
+var n = x.Maximum();
+var n2 = new Array(x.Maximum(), y.Maximum());
+
+//Maximum (Max) qui agira sur un objet Array, devient une fonction membre non statique:
+
+function Max(){
+  var res = this[0], i=1, n=this.length;
+
+  for(;i < n; i++)
+    if(this[i] > res)
+      res = this[i];
+
+  return res;
+}
+</script>
+</head>
+<body>
+
+</body>
+
+</html>
