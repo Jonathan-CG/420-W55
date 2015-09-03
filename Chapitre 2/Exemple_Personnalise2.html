@@ -1,0 +1,43 @@
+<html>
+<head>
+<title> Titre </title>
+<script language="JavaScript">
+
+function Voiture(marque) {
+
+  // propriété
+  this.couleur = "verte";
+  this.marque = marque;
+  
+
+  // Méthode de classe
+  Voiture.construire = function (marque) {
+    return new Voiture(marque);
+  };
+};
+
+// méthodes d'instance
+Voiture.prototype = {
+  rouler: function (direction) {
+    document.write("la voiture roule ");
+  },
+  getMarque: function () {
+    return this.marque;
+  },
+ 
+};
+ 
+var saab = new Voiture('Saab');
+var chrysler = Voiture.construire('Chrysler');
+chrysler.rouler();
+document.write(saab.getMarque());
+
+
+
+</script>
+</head>
+<body>
+
+</body>
+
+</html>
