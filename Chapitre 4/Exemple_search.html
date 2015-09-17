@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Recherche le contenu d'une expression régulière:</p>
+<p id="demo"></p>
+
+
+<button onclick="myFunction()">Cliquez ici</button>
+<br/>
+<br/>
+<br/>
+Entrez un code qq qui doit correspondre à ceci:<br/>
+Présence d'un chiffre<br/>
+Présence d'une lettre<br/>
+Présence d'un caractère spécial dans la liste suivante (!?,.;*)<br/>
+Minimum de 6 caractère<br/>
+
+<input id="text" type="text" value="" onkeyup="validate()">
+<p id="validate"></p>
+
+<br/>
+<br/>
+
+<p>
+On peut également remplacer aisément une chaîne dans une autre.<br/>
+
+Écrivez une phrase ou nous retirerons toutes les voyelles.
+</p>
+<input id="phrase" type="text" value="" onkeyup="killVoyelles()" size="60"> &nbsp; <span id="nombre">0 voyelle consommée</span>
+
+<p id="voyelles"></p>
+
+<script>
+function myFunction() {
+    var str = "J'aime les 8 patates rondes et droites!"; 
+    var n = str.search("rondes");
+    alert("Position de z: " + str.search("z"));
+	alert("Position d'un chiffre: " + str.search(/\d/));		
+	alert("Position du point d'exclamation: " + str.search("!"));
+
+    document.getElementById("demo").innerHTML = n;
+}
+
+function validate(){
+
+	var validation = true;
+	var texte = document.getElementById("text").value;
+
+	//alert (texte.search(/\d/));
+
+	if (texte.search(/\d/) < 0) validation = false;
+	if (texte.search(/\w/i) < 0) validation = false;
+	if (texte.search(/[!?,.;*]/) < 0) validation = false;
+	if (texte.length >= 6)
+
+	if (validation)
+		document.getElementById("validate").innerHTML = "Valide";
+	else
+		document.getElementById("validate").innerHTML = "Non valide";
+}
+
+function killVoyelles()
+{
+	var texte = document.getElementById("phrase").value;
+	var nbr = texte.split(/[aeiouy]/g).length - 1;
+
+	if (nbr > 1)
+		document.getElementById("nombre").innerHTML =  nbr + " voyelles consommées";
+	else 
+		document.getElementById("nombre").innerHTML =  nbr + " voyelle consommée";
+
+	document.getElementById("voyelles").innerHTML = texte.replace(/[aeiouy]/g, '');
+
+
+}
+</script>
+
+</body>
+</html>
+
