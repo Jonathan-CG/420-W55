@@ -1,4 +1,0 @@
-J'aime le chocolat... et vous?
-
-<input type="text" value="" name="Question">
-<input type="submit">
