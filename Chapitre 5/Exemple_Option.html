@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<form>
+  <select id="mySelect" size="8">
+    <option>Pomme</option>
+    <option>Poire</option>
+    <option>Banane</option>
+    <option>Orange</option>
+  </select>
+</form>
+<br>
+
+<p>Cliquez pour ajouter Kiwi au début de la liste.</p>
+
+<button type="button" onclick="addOption()">Insérer Kiwi</button>
+<button type="button" onclick="removeOption()">Retirer la première option</button>
+
+<script>
+function addOption() {
+    var x = document.getElementById("mySelect");
+    var option = document.createElement("option");
+    option.text = "Kiwi";
+    x.add(option, x[0]);
+}
+function removeOption(){
+    var x = document.getElementById("mySelect");
+    x.remove(x[0]);    
+}
+</script>
+
+</body>
+</html>
