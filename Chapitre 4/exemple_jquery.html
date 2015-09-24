@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>Exemple JQuery</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+   $("a").click(function(event){
+     event.preventDefault();
+     alert("Got ya, you stay here!");
+     $(this).hide();
+   });
+});
+</script>
+</head>
+
+<body>
+
+<a href="http://www.google.ca">Aller sur Google</a><br/>
+<a href="http://www.facebook.com">Aller sur FaceBook</a><br/>
+<a href="http://www.twitter.com">Aller sur Twitter</a><br/>
+<a href="http://www.tunein.com">Aller sur TuneIn Radio</a>
+</body>
+</html>
