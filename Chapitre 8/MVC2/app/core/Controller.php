@@ -3,7 +3,7 @@
 class Controller{
 	public function model($model)
 	{
-		require_once '../app/models' . $model . '.php';
+		require_once '../app/models/' . $model . '.php';
 	}
 
 	public function view($view, $data = [])

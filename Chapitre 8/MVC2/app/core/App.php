@@ -34,20 +34,9 @@ class App
 
 	public function parseUrl()
 	{
-
-		$url = parse_url($_SERVER["REQUEST_URI"])["path"];
-		$url = array_filter(explode("/", $url));
-		$pos = array_search("index.php", $url);
-
-		for ($i = 0; $i <= $pos; $i++)
-			unset($url[$i]);
-
-		return $url = array_values ($url);
-
-		//print_r($_GET['URL']);
-		//if (isset($_GET['URL'])) {
-		//	return $url = explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
-		
+		if (isset($_GET['url'])) {
+			return $url = explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
+		}
 	}
 
 }
